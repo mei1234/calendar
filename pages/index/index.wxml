@@ -1,0 +1,7 @@
+<!--index.wxml-->
+<view class="container">
+  <calendar 
+    calendarConfig="{{calendarConfig}}"
+    bind:selTime="selTime"
+  ></calendar>
+</view>

@@ -1,0 +1,36 @@
+<!--components/calendar2/index.wxml-->
+<view class="calendar">
+    <view class="">{{year}}年</view>
+    <view class="top font30">
+        <image wx:if="{{!(count==calendarConfig.monthCount)}}" class="left" catchtap="reduceMonth" src="./img/left.png" />
+        <image wx:if="{{!(count==1)}}" class="right" catchtap='addMonth' src="./img/right.png" />  
+        <view class="month">{{month}}月</view>              
+    </view>
+    <view class="con">
+        <view class="weeks">
+            <text wx:for="{{weeks}}" wx:key="index" class="week">{{item}}</text>
+        </view>
+        <!--  wx:for="{{days[month-1]-0}}" 循环每个月 -->
+        <!-- {{(index+1)==day?'active':''}}每个月的当前时间的日子day都有active的背景色 -->
+        <!-- {{(day1.year==year&&day1.month==month&&day1.day==(index+1))?'first-sel sel-col':''}} 标记所选的第一个时间的样式  -->
+        <!-- {{(day2.year==year&&day2.month==month&&day2.day==(index+1))?'last-sel sel-col':''}} 标记所选时间的最后一个的样式 -->
+        <!-- {{(currentMonth > month)||((currentMonth==month)&&((index+1) < day))?'gray':''}}小于当期时间的都标记为灰色 -->
+        <!-- {{(day1.month<day2.month&&day1.month==month&&day1.day<(index+1))?'sel-col':''}} {{(day1.month<day2.month&&day2.month==month&&(index+1)<day2.day)?'sel-col':''}} 跨月的情况 {{(day1.month<day2.month&&day1.month<month&&day2.month>month)?'sel-col':''}} 支持跨多个月的 -->
+        <!-- {{(day1.month==day2.month&&day1.month==month&&day1.day<(index+1)&&day2.day>(index+1))?'sel-col':''}} 同月 wx:for="{{days[month-1]-0}}" wx:for-index="index" wx:key="index"-->
+        <view class="days" wx:if="{{calendarConfig.multi}}">
+            <view wx:for="{{days[month-1]-0}}" wx:key="index" class="item" style="margin-left:{{index==0?moveR:''}}">
+                <view class="item-day {{(day1.month<day2.month&&day1.month==month&&day1.day<(index+1))?'sel-col':''}} {{(day1.month<day2.month&&day1.month<month&&day2.month>month)?'sel-col':''}} {{(day1.month<day2.month&&day2.month==month&&(index+1)<day2.day)?'sel-col':''}} {{(day1.month==day2.month&&day1.month==month&&day1.day<(index+1)&&day2.day>(index+1))?'sel-col':''}} {{(day1.year==year&&day1.month==month&&day1.day==(index+1))?'first-sel sel-col':''}} {{(day2.year==year&&day2.month==month&&day2.day==(index+1))?'last-sel sel-col':''}}" >
+                    <view class="day bdr25 {{(index+1)==day?'active':''}} {{(currentMonth > month)||((currentMonth==month)&&((index+1) < day))?'forbid':''}}" data-day="{{index+1}}" bindtap='selTime'>{{1+index}}</view>
+                </view>  
+            </view>        
+        </view>
+        <view class="days" wx:else>
+            <view wx:for="{{days[month-1]-0}}" wx:key="index" class="item" style="margin-left:{{index==0?moveR:''}}">
+                <view wx:for-index="index" class="item-day" >
+                    <view class="day bdr25 {{(index+1)==day?'active':''}} {{(currentMonth > month)||((currentMonth==month)&&((index+1) < day))?'forbid':''}} {{(day1.year==year&&day1.month==month&&day1.day==(index+1))?'sel-col':''}}" data-day="{{index+1}}" bindtap='selTime'>{{1+index}}</view>                    
+                </view>    
+            </view>                    
+        </view>
+    </view>
+</view>
+

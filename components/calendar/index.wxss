@@ -1,0 +1,140 @@
+/* components/calendar2/index.wxss */
+
+.font30 {
+    font-size: 30rpx;
+}
+
+.font24 {
+    font-size: 24rpx;
+}
+
+.calendar {
+    width: 620rpx;
+    margin: 20rpx auto;
+    box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    padding: 0 30rpx;
+    background-color: #fff;
+}
+
+
+/* 头 */
+
+.calendar .top {
+    /* display: flex;
+    justify-content: space-between; */
+    padding: 40rpx 0 30rpx;
+}
+
+.month {
+    text-align: center;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.calendar .top .left,
+.calendar .top .right {
+    width: 14rpx;
+    height: 28rpx;
+    padding: 7rpx 12rpx;
+}
+
+
+/* 星期几 */
+
+.weeks {
+    width: 560rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    border-radius: 30rpx;
+    background-color: #FCCD1C;
+    padding: 0 30rpx;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 24rpx;
+}
+
+.week {
+    display: inline-block;
+    width: 80rpx;
+}
+
+
+/* 日 */
+
+.active {
+    background-color: #FCCD1C;
+}
+
+.forbid {
+    background-color: #eee;
+    color: #ccc;
+}
+
+.sel-col {
+    background-color: #FEF0BA;
+}
+
+.first-sel {
+    /* border-top-left-radius: 25rpx;
+    border-bottom-left-radius: 25rpx; */
+    border-radius: 25rpx 0 0 25rpx !important;
+}
+
+.last-sel {
+    border-radius: 0 25rpx 25rpx 0 !important;
+}
+
+.bdr25 {
+    border-radius: 25rpx;
+}
+
+.days {
+    width: 560rpx;
+    margin: 0 auto;
+    padding: 30rpx 0;
+    color: #333;
+}
+
+.days .item {
+    /* margin-left: 100rpx; */
+    /* position: relative;
+    left: 100rpx; */
+    display: inline-block;
+    width: 80rpx;
+    height: 80rpx;
+    margin-top: 15rpx;
+    text-align: center;
+    vertical-align: top;
+    /* background-color: #FCCD1C; */
+}
+
+.days .item .item-day {
+    width: 80rpx;
+    height: 50rpx;
+}
+
+.days .item .day {
+    display: inline-block;
+    width: 50rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: center;
+    font-size: 24rpx;
+    vertical-align: top;
+    /* background-color: #ddd; */
+}
+
+.days .item .price {
+    width: 80rpx;
+    height: 26rpx;
+    font-size: 18rpx;
+    color: #FF0202;
+    /* background-color: #333; */
+}
