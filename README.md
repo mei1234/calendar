@@ -25,3 +25,5 @@ selTime(e) {
 "usingComponents": {
     "calendar": "../../components/calendar/index"
 }
+
+效果可以看img文件的图片
